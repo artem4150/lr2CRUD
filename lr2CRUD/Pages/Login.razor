@@ -1,0 +1,58 @@
+﻿@page "/login"
+@inject HttpClient Http
+@using System.Net.Http.Json
+
+<h3>Вход</h3>
+
+<EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Email:</label>
+        <InputText @bind-Value="loginModel.Email" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Password:</label>
+        <InputText @bind-Value="loginModel.Password" type="password" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Войти</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <div class="alert alert-info mt-3">@message</div>
+}
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+    private string message;
+    
+    private async Task HandleLogin()
+    {
+        var response = await Http.PostAsJsonAsync("api/auth/login", loginModel);
+        if (response.IsSuccessStatusCode)
+        {
+            var result = await response.Content.ReadFromJsonAsync<LoginResult>();
+            message = $"Добро пожаловать, {result.Username}!";
+            // Сохраните данные пользователя или токен, если требуется
+        }
+        else
+        {
+            message = await response.Content.ReadAsStringAsync();
+        }
+    }
+    
+    public class LoginModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+    
+    public class LoginResult
+    {
+        public string Message { get; set; }
+        public int UserId { get; set; }
+        public string Username { get; set; }
+    }
+}

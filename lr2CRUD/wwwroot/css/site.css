@@ -1,0 +1,132 @@
+/* Общий сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Базовые стили для body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Контейнер для центрального контента */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стилизация навигации */
+nav {
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+    nav a {
+        color: #333;
+        text-decoration: none;
+        margin-right: 15px;
+        transition: color 0.3s ease;
+    }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+/* Шапка сайта */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* Основные секции */
+section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+/* Стилизация кнопок */
+.btn {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+    .btn:hover {
+        background: #0056b3;
+    }
+
+/* Стилизация форм */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: border 0.3s ease;
+}
+
+    input:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+    }
+
+/* Стилизация таблиц */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+/* Стилизация футера */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    margin-top: 30px;
+}
