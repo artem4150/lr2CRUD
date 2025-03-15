@@ -14,6 +14,6 @@ namespace MyProject.Api.Models
 
         // Внешний ключ к аутфиту
         public int OutfitId { get; set; }
-        public Outfit ? Outfit { get; set; }
+        public Outfit ? Outfit { get; set; }  
     }
 }
